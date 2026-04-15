@@ -20,9 +20,4 @@ Open http://localhost:3000 → auto-redirects to /en
 
 ## Stack: Next.js 16 · TypeScript · Tailwind CSS v4 · lucide-react
 
-## Build: 66 static pages across 3 locales
-# AMNXTDIGITAL_08
-# AMNXTDIGITAL_0805
-# AMNXTDIGITAL_0805
-# AMNXTDIGITAL_0805
-# AMNXTDIGITAL_0805
+
