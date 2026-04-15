@@ -1,0 +1,16 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  images: {
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    remotePatterns: [
+      { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'picsum.photos' },
+      { protocol: 'https', hostname: 'via.placeholder.com' },
+      { protocol: 'https', hostname: 'i.pravatar.cc' },
+    ],
+  },
+};
+
+export default nextConfig;

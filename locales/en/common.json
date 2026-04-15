@@ -1,0 +1,143 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "home": {
+    "hero": {
+      "badge": "NextGen IT Solutions",
+      "title": "Build the Future with",
+      "titleHighlight": "AMNXT DIGITAL",
+      "subtitle": "We craft cutting-edge IT solutions and digital marketing strategies that transform businesses into industry leaders.",
+      "cta": "Start Your Project",
+      "ctaSecondary": "Book Consultation",
+      "scrollDown": "Scroll to explore"
+    },
+    "stats": {
+      "clients": "Happy Clients",
+      "projects": "Projects Delivered",
+      "years": "Years of Experience",
+      "satisfaction": "Satisfaction Rate"
+    },
+    "services": {
+      "label": "What We Do",
+      "title": "End-to-End Digital Solutions",
+      "subtitle": "From concept to deployment, we provide comprehensive IT and marketing services tailored to your vision."
+    },
+    "why": {
+      "label": "Why AMNXT DIGITAL",
+      "title": "Built Different, Delivers More",
+      "subtitle": "We combine technical excellence with creative strategy to deliver outcomes that matter.",
+      "items": [
+        {
+          "title": "Future-Ready Technology",
+          "desc": "We leverage the latest tech stack to build scalable, future-proof solutions."
+        },
+        {
+          "title": "Agile Delivery",
+          "desc": "Fast, iterative delivery with complete transparency at every step."
+        },
+        {
+          "title": "Dedicated Support",
+          "desc": "24/7 support and maintenance to keep your systems running flawlessly."
+        },
+        {
+          "title": "Proven Results",
+          "desc": "Track record of 500+ successful projects across 30+ industries."
+        }
+      ]
+    },
+    "testimonials": {
+      "label": "Client Stories",
+      "title": "Trusted by Industry Leaders"
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Common Questions Answered"
+    },
+    "cta": {
+      "title": "Ready to Build Something Extraordinary?",
+      "subtitle": "Let's turn your vision into reality. Book a free consultation with our experts today.",
+      "button": "Book Free Consultation",
+      "buttonSecondary": "View Our Work"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "About AMNXT DIGITAL",
+      "title": "Pioneering the Digital Frontier",
+      "subtitle": "We are a team of passionate technologists and marketers dedicated to transforming businesses through innovation."
+    },
+    "mission": "To empower businesses with cutting-edge technology and data-driven marketing strategies that create lasting competitive advantages.",
+    "vision": "To be the world's most trusted digital transformation partner, enabling companies to thrive in an ever-evolving technological landscape.",
+    "achievements": {
+      "label": "Milestones",
+      "title": "Our Journey in Numbers"
+    }
+  },
+  "services": {
+    "hero": {
+      "label": "Services",
+      "title": "Comprehensive Digital Solutions",
+      "subtitle": "Explore our full spectrum of IT and marketing services designed to accelerate your growth."
+    }
+  },
+  "projects": {
+    "hero": {
+      "label": "Our Work",
+      "title": "Projects That Define Excellence",
+      "subtitle": "A curated showcase of our most impactful digital transformations."
+    },
+    "filters": {
+      "all": "All Projects",
+      "web": "Web Development",
+      "mobile": "Mobile Apps",
+      "marketing": "Digital Marketing",
+      "ai": "AI & Automation",
+      "ecommerce": "E-Commerce"
+    }
+  },
+  "team": {
+    "hero": {
+      "label": "Our Team",
+      "title": "The Minds Behind AMNXT DIGITAL",
+      "subtitle": "A diverse team of innovators, creators, and problem-solvers committed to your success."
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "Get in Touch",
+      "title": "Let's Build Something Great",
+      "subtitle": "Ready to start your digital transformation journey? We're here to help."
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service Interested In",
+      "description": "Project Description",
+      "budget": "Estimated Budget",
+      "submit": "Send Message",
+      "success": "Message sent! We'll get back to you within 24 hours."
+    },
+    "info": {
+      "email": "hello@amnxtdigital.com",
+      "phone": "+91-85111 20026",
+      "address": " Anand, Gujarat"
+    }
+  },
+  "footer": {
+    "description": "Transforming businesses through innovative IT solutions and digital marketing excellence.",
+    "copyright": "© 2025 AMNXT DIGITAL. All rights reserved.",
+    "links": {
+      "company": "Company",
+      "services": "Services",
+      "legal": "Legal"
+    }
+  }
+}
