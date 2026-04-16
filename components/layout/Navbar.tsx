@@ -2,10 +2,11 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Zap } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { locales, localeNames, localeFlags, isRTL } from '@/lib/i18n';
 import type { Locale } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import DarkModeToggle from '@/components/ui/DarkModeToggle';
 
 interface NavbarProps {
   lang: Locale;
@@ -134,6 +135,8 @@ export default function Navbar({ lang, t }: NavbarProps) {
               </div>
             )}
           </div>
+
+          <DarkModeToggle />
 
           <Link href={`/${lang}/contact`} className="btn-primary hidden sm:inline-flex text-sm px-5 py-2.5">
             {t.getStarted || 'Get Started'}

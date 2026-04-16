@@ -4,6 +4,8 @@ import { isValidLocale, getTranslations, isRTL } from '@/lib/i18n';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import AIChatBox from '@/components/ui/AIChatBox';
+import CursorFollow from '@/components/ui/CursorFollow';
 
 interface LangLayoutProps {
   children: React.ReactNode;
@@ -39,9 +41,11 @@ export default async function LangLayout({ children, params }: LangLayoutProps) 
 
   return (
     <div dir={dir} className="min-h-screen flex flex-col">
+      <CursorFollow />
       <Navbar lang={locale} t={t.nav} />
       <main className="flex-1">{children}</main>
       <Footer lang={locale} t={t} />
+      <AIChatBox />
     </div>
   );
 }
