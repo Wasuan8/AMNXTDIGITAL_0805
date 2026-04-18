@@ -1,7 +1,11 @@
 export type Locale = 'en' | 'hi' | 'ar';
 
 export interface PageProps {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
+}
+
+export interface SlugPageProps {
+  params: Promise<{ lang: Locale; slug: string }>;
 }
 
 export interface Service {

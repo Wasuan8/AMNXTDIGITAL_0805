@@ -10,7 +10,7 @@ import { projects } from '@/data/projects';
 import { Section, Badge, TagList, Card } from '@/components/ui/index';
 import Animate from '@/components/ui/Animate';
 
-interface PageProps { params: Promise<{ lang: string; slug: string }> }
+import { SlugPageProps } from '@/lib/types';
 
 export async function generateStaticParams() {
   return teamMembers.map((m) => ({ slug: m.slug }));
@@ -41,7 +41,7 @@ const socialColors: Record<string, string> = {
   dribbble: 'hover:text-pink-500 hover:border-pink-200',
 };
 
-export default async function TeamDetailPage({ params }: PageProps) {
+export default async function ProjectDetailPage({ params }: SlugPageProps) {
   const { lang, slug } = await params;
   if (!isValidLocale(lang)) notFound();
   const locale = lang as Locale;

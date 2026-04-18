@@ -11,7 +11,7 @@ import Animate from '@/components/ui/Animate';
 import { teamMembers } from '@/data/team';
 import TeamSocialButton from '@/components/sections/TeamSocialButton';
 
-interface PageProps { params: Promise<{ lang: string }> }
+import { PageProps } from '@/lib/types';
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;

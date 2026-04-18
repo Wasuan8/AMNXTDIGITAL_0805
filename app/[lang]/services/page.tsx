@@ -9,9 +9,9 @@ import Animate from '@/components/ui/Animate';
 import { services } from '@/data/services';
 import Link from 'next/link';
 
-interface PageProps { params: Promise<{ lang: string }> }
+import { PageProps } from '@/lib/types';
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   return {
     title: 'Services — Web Dev, Mobile Apps, AI & Digital Marketing',

@@ -4,7 +4,7 @@ import { isValidLocale } from '@/lib/i18n';
 import { notFound } from 'next/navigation';
 import CareersClient from '@/components/sections/CareersClient';
 
-interface PageProps { params: Promise<{ lang: string }> }
+import { PageProps } from '@/lib/types';
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;

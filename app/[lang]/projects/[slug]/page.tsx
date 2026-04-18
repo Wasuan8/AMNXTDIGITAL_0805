@@ -10,13 +10,13 @@ import { Section, SectionLabel, Heading, Badge, TagList, Card } from '@/componen
 import Animate from '@/components/ui/Animate';
 import Counter from '@/components/ui/Counter';
 
-interface PageProps { params: Promise<{ lang: string; slug: string }> }
+import { SlugPageProps } from '@/lib/types';
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: 'Project Not Found' };
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-export default async function ProjectDetailPage({ params }: PageProps) {
+export default async function ProjectDetailPage({ params }: SlugPageProps) {
   const { lang, slug } = await params;
   if (!isValidLocale(lang)) notFound();
   const locale = lang as Locale;

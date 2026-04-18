@@ -11,9 +11,9 @@ import { teamMembers } from '@/data/team';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface PageProps { params: Promise<{ lang: string }> }
+import { PageProps } from '@/lib/types';
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   return {
     title: 'About AMNXT DIGITAL — Our Story, Mission & Team',

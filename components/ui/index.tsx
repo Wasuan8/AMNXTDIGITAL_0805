@@ -155,9 +155,10 @@ export function Divider({ className }: { className?: string }) {
 }
 
 // ─── Dot ──────────────────────────────────────────────────
-export function GlowDot({ color = 'brand', size = 'md', className }: { color?: 'brand' | 'purple' | 'cyan'; size?: 'sm' | 'md' | 'lg'; className?: string }) {
-  const colors = {
+export function GlowDot({ color = 'brand', size = 'md', className }: { color?: 'brand' | 'purple' | 'cyan' | 'orange' | 'red'; size?: 'sm' | 'md' | 'lg'; className?: string }) {
+  const colors: Record<string, string> = {
     brand: 'bg-brand-500',
+    purple: 'bg-purple-500',
     orange: 'bg-orange-500',
     red: 'bg-red-500',
     cyan: 'bg-cyan-400',

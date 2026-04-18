@@ -4,7 +4,7 @@ import { getTranslations, isValidLocale } from '@/lib/i18n';
 import { notFound } from 'next/navigation';
 import ProjectsClient from '@/components/sections/ProjectsClient';
 
-interface PageProps { params: Promise<{ lang: string }> }
+import { PageProps } from '@/lib/types';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;

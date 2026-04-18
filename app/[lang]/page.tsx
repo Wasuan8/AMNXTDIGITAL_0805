@@ -15,11 +15,9 @@ import FAQAccordion from '@/components/ui/FAQAccordion';
 import Animate from '@/components/ui/Animate';
 import { faqs } from '@/data/testimonials';
 
-interface PageProps {
-  params: { lang: string };
-}
+import { PageProps } from '@/lib/types';
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { lang } = await params;
   return {
     title: 'AMNXT DIGITAL NextGen IT Solutions & Digital Marketing',
