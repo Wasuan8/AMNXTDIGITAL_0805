@@ -5,7 +5,7 @@ import { clientLogos } from '@/data/testimonials';
 export default function ClientLogos() {
   const doubled = [...clientLogos, ...clientLogos];
   return (
-    <section className="py-12 bg-white border-b border-gray-100 overflow-hidden">
+    <section className="py-8 bg-white border-b border-gray-100 overflow-hidden">
       <p className="text-center text-xs text-gray-400 font-medium uppercase tracking-widest mb-8">
         Trusted by Industry Leaders
       </p>

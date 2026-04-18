@@ -10,7 +10,7 @@ export default function Stats({ t }: StatsProps) {
   const labels = [t.projects, t.clients, t.years, t.satisfaction];
 
   return (
-    <section className="py-16 bg-white border-y border-gray-50">
+    <section className="py-10 bg-white border-y border-gray-50">
       <div className="container-custom">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat, i) => (

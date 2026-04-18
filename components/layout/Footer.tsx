@@ -32,10 +32,10 @@ export default function Footer({ lang, t }: FooterProps) {
 
   return (
     <footer
-      className="relative text-[#000000]"
+      className="relative text-[#000000] overflow-hidden"
       dir={dir}
       style={{
-        background: 'radial-gradient(89.08% 84.62% at 16.54% 78.46%, #ffffff 0%, #e0f2fe 39.58%, #bae6fd 77.6%, #7dd3fc 100%), url("https://assets.codepen.io/16327/noise-e82662fe.png")',
+        background: 'radial-gradient(100% 100% at 0% 0%, #fefcfb 0%, #fff7ed 30%, #fff1f2 60%, #e0f2fe 100%), url("https://assets.codepen.io/16327/noise-e82662fe.png")',
       }}
     >
       <div className="container-custom pt-16 pb-8 relative z-10">
@@ -62,7 +62,7 @@ export default function Footer({ lang, t }: FooterProps) {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-xl glass-subtle hover:bg-white/50 text-gray-900 border border-black/5 hover:border-brand-500/30 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
+                  className="w-10 h-10 rounded-2xl glass-premium hover:bg-white text-gray-900 border border-white/60 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-[0_10px_30px_-5px_rgba(249,115,22,0.2)] hover:-translate-y-1.5"
                 >
                   {/* <Icon className="w-4 h-4" /> */}
                   <img src={href} alt={label} className="w-6 h-6" />
@@ -133,13 +133,24 @@ export default function Footer({ lang, t }: FooterProps) {
             {(footer?.copyright as string) || '© 2025 AMNXT DIGITAL. All rights reserved.'}
           </p>
           <div className="flex items-center gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
-              <Link key={item} href="#" className="text-xs font-semibold opacity-70 hover:opacity-100 transition-opacity duration-200">
-                {item}
+            {[
+              { label: 'Privacy Policy', href: `/${lang}/privacy-policy` },
+              { label: 'Terms of Service', href: `/${lang}/terms-of-service` },
+              { label: 'Cookie Policy', href: `/${lang}/cookie-policy` },
+            ].map((item) => (
+              <Link key={item.label} href={item.href} className="text-xs font-semibold opacity-70 hover:opacity-100 transition-opacity duration-200">
+                {item.label}
               </Link>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Brand Watermark Effect */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden h-full flex items-end justify-center z-0 select-none">
+        <h2 className="text-[20vw] font-display font-bold text-brand-900/[0.06] dark:text-white/[0.04] uppercase leading-none translate-y-1/4 tracking-tighter whitespace-nowrap">
+          DevStudio
+        </h2>
       </div>
     </footer>
   );

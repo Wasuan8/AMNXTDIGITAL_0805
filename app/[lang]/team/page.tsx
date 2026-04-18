@@ -22,6 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+import CTABanner from '@/components/home/CTABanner';
+
 export default async function TeamPage({ params }: PageProps) {
   const { lang } = await params;
   if (!isValidLocale(lang)) notFound();
@@ -34,8 +36,9 @@ export default async function TeamPage({ params }: PageProps) {
       <PageHero label={team.hero.label} title={team.hero.title} subtitle={team.hero.subtitle} />
 
       {/* Culture Bar */}
-      <section className="bg-gray-950 py-10">
-        <div className="container-custom">
+      <section className="bg-gray-950/95 py-10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-brand-500/5 pointer-events-none" />
+        <div className="container-custom relative z-10">
           <div className="flex flex-wrap gap-8 justify-around items-center">
             {[
               { value: '80+', label: 'Team Members' },
@@ -43,9 +46,9 @@ export default async function TeamPage({ params }: PageProps) {
               { value: '100%', label: 'Remote Friendly' },
               { value: '4.9★', label: 'Glassdoor Rating' },
             ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-display font-bold text-gradient">{s.value}</div>
-                <div className="text-sm text-gray-400 mt-1">{s.label}</div>
+              <div key={s.label} className="text-center group">
+                <div className="text-3xl md:text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-orange-400 to-red-400 group-hover:scale-110 transition-transform duration-300">{s.value}</div>
+                <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mt-2">{s.label}</div>
               </div>
             ))}
           </div>
@@ -54,7 +57,7 @@ export default async function TeamPage({ params }: PageProps) {
 
       {/* Team Grid */}
       <Section className="bg-white">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <Animate>
             <SectionLabel>Core Team</SectionLabel>
             <Heading as="h2" className="text-3xl md:text-4xl">Exceptional People</Heading>
@@ -109,20 +112,7 @@ export default async function TeamPage({ params }: PageProps) {
         </div>
       </Section>
 
-      {/* Join CTA */}
-      <Section className="bg-white">
-        <Animate>
-          <div className="max-w-3xl mx-auto text-center rounded-[2rem] p-12 text-white bg-gradient-brand">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">Want to Join AMNXT DIGITAL?</h2>
-            <p className="mb-8 text-lg" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              We're always looking for exceptional talent. Work on exciting projects with a team that cares.
-            </p>
-            <Link href={`/${locale}/contact`} className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-brand-700 font-semibold hover:bg-brand-50 transition-colors">
-              View Open Positions <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </Animate>
-      </Section>
+      <CTABanner lang={locale} t={team.cta as any} />
     </>
   );
 }

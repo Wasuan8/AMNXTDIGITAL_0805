@@ -38,11 +38,12 @@ interface BadgeProps {
 
 export function Badge({ children, variant = 'brand', className }: BadgeProps) {
   const variants = {
-    brand: 'bg-brand-50 text-brand-600 border-brand-100',
-    success: 'bg-emerald-50 text-emerald-600 border-emerald-100',
-    warning: 'bg-amber-50 text-amber-600 border-amber-100',
-    info: 'bg-sky-50 text-sky-600 border-sky-100',
-    muted: 'bg-gray-50 text-gray-600 border-gray-100',
+    brand: 'bg-brand-50/50 text-brand-700 border-brand-100 backdrop-blur-md',
+    success: 'bg-emerald-50/50 text-emerald-700 border-emerald-100 backdrop-blur-md',
+    warning: 'bg-orange-50/50 text-orange-700 border-orange-100 backdrop-blur-md',
+    active: 'bg-red-50/50 text-red-700 border-red-100 backdrop-blur-md',
+    info: 'bg-sky-50/50 text-sky-700 border-sky-100 backdrop-blur-md',
+    muted: 'bg-gray-50/50 text-gray-700 border-gray-100 backdrop-blur-md',
   };
   return (
     <span className={cn('inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border', variants[variant], className)}>
@@ -108,7 +109,7 @@ interface CardProps {
 
 export function Card({ children, className, hover = true }: CardProps) {
   return (
-    <div className={cn(hover ? 'card-base' : 'bg-white rounded-3xl border border-gray-100', className)}>
+    <div className={cn(hover ? 'card-base' : 'bg-white/80 rounded-3xl border border-gray-100 backdrop-blur-sm shadow-sm', className)}>
       {children}
     </div>
   );
@@ -150,14 +151,15 @@ export function TagList({ tags, max }: { tags: string[]; max?: number }) {
 
 // ─── Divider ──────────────────────────────────────────────
 export function Divider({ className }: { className?: string }) {
-  return <div className={cn('h-px bg-gradient-to-r from-transparent via-brand-100 to-transparent', className)} />;
+  return <div className={cn('h-px bg-gradient-to-r from-transparent via-orange-200 to-transparent', className)} />;
 }
 
 // ─── Dot ──────────────────────────────────────────────────
 export function GlowDot({ color = 'brand', size = 'md', className }: { color?: 'brand' | 'purple' | 'cyan'; size?: 'sm' | 'md' | 'lg'; className?: string }) {
   const colors = {
-    brand: 'bg-brand-400',
-    purple: 'bg-purple-400',
+    brand: 'bg-brand-500',
+    orange: 'bg-orange-500',
+    red: 'bg-red-500',
     cyan: 'bg-cyan-400',
   };
   const sizes = { sm: 'w-2 h-2', md: 'w-3 h-3', lg: 'w-4 h-4' };

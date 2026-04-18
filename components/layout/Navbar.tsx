@@ -62,10 +62,10 @@ export default function Navbar({ lang, t }: NavbarProps) {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        scrolled
-          ? 'glass shadow-card py-3'
-          : 'bg-transparent py-5'
-      )}
+         scrolled
+           ? 'glass-premium shadow-2xl py-2.5 translate-y-4 max-w-[95%] lg:max-w-[1100px] mx-auto left-0 right-0 rounded-full border border-white/60'
+           : 'bg-transparent py-5'
+       )}
       dir={dir}
     >
       <nav className="container-custom flex items-center justify-between">
@@ -90,8 +90,8 @@ export default function Navbar({ lang, t }: NavbarProps) {
                 className={cn(
                   'px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300',
                   isActive(item.href)
-                    ? 'text-brand-600 bg-brand-50/80 backdrop-blur-md shadow-sm border border-brand-100/50'
-                    : 'text-gray-600 border border-transparent hover:text-brand-600 hover:bg-white/40 hover:backdrop-blur-lg hover:shadow-sm hover:border-white/60'
+                    ? 'text-orange-600 bg-orange-50/80 backdrop-blur-md shadow-sm border border-orange-100/50'
+                    : 'text-gray-600 border border-transparent hover:text-orange-600 hover:bg-white/40 hover:backdrop-blur-lg hover:shadow-sm hover:border-white/60'
                 )}
               >
                 {t[item.label] || item.label}

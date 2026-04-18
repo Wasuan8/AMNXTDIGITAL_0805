@@ -52,8 +52,8 @@ export const services: Service[] = [
     title: 'Cloud Infrastructure',
     description: 'Scalable, secure cloud solutions that ensure reliability and performance at any scale.',
     features: ['AWS / GCP / Azure', 'DevOps & CI/CD', 'Microservices', 'Security & Compliance', '24/7 Monitoring'],
-    color: 'text-brand-600',
-    gradient: 'from-brand-500 to-brand-400',
+    color: 'text-orange-600',
+    gradient: 'from-orange-500 to-red-500',
   },
   {
     id: 'ecommerce',

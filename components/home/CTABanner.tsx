@@ -68,8 +68,7 @@ export default function CTABanner({ lang, t }: CTABannerProps) {
       ref={containerRef}
       className="relative overflow-hidden py-16 md:py-24 flex items-center justify-center min-h-[60vh] w-full perspective-container"
       style={{
-        background: '#0e100f',
-        backgroundBlendMode: 'color-dodge'
+        background: '#fcfcfd',
       }}
     >
       <div className="container-custom relative z-10 w-full h-full flex items-center justify-center">
@@ -77,11 +76,12 @@ export default function CTABanner({ lang, t }: CTABannerProps) {
         {/* The Entire Banner Graphic Card */}
         <div 
           ref={outerRef}
-          className="w-full relative overflow-hidden sm:overflow-visible flex flex-col items-start shadow-2xl p-8 sm:p-14 lg:p-20 transform-style-3d"
+          className="w-full relative sm:overflow-visible flex flex-col items-start shadow-2xl p-8 sm:p-14 lg:p-20 transform-style-3d"
           style={{
-            background: 'radial-gradient(89.08% 84.62% at 16.54% 78.46%, #ffffff 0%, #e0f2fe 39.58%, #bae6fd 77.6%, #7dd3fc 100%), url("https://assets.codepen.io/16327/noise-e82662fe.png")',
+            background: 'white',
+            backgroundImage: 'radial-gradient(89.08% 84.62% at 16.54% 78.46%, #ffffff 0%, #f0f9ff 39.58%, #e0f2fe 77.6%, #bae6fd 100%), url("https://assets.codepen.io/16327/noise-e82662fe.png")',
             borderRadius: '3rem',
-            boxShadow: '0 25px 50px -12px rgba(125, 211, 252, 0.25)'
+            boxShadow: '0 40px 100px -20px rgba(125, 211, 252, 0.35), 0 0 1px 1px rgba(125, 211, 252, 0.1) inset'
           }}
         >
           {/* Left CTA Content */}
@@ -93,15 +93,13 @@ export default function CTABanner({ lang, t }: CTABannerProps) {
               {t.subtitle || 'Step into the future with world-class engineering, stunning design, and scalable infrastructure.'}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto relative z-30" style={{ transform: 'translateZ(50px)' }}>
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto relative z-30" style={{ transform: 'translateZ(60px)', pointerEvents: 'auto' }}>
               <Link
                 href={`/${lang}/contact`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 cursor-pointer relative z-40"
                 style={{ 
                   background: '#000000', 
                   color: '#bae6fd',
-                  position: 'relative',
-                  zIndex: 40
                 }}
               >
                 <Calendar className="w-5 h-5" />
@@ -109,12 +107,10 @@ export default function CTABanner({ lang, t }: CTABannerProps) {
               </Link>
               <Link
                 href={`/${lang}/projects`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold border hover:bg-black/5 transition-all duration-300 active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold border hover:bg-black/5 transition-all duration-300 active:scale-95 cursor-pointer relative z-40"
                 style={{ 
                   borderColor: 'rgba(0, 0, 0, 0.2)', 
                   color: '#000000',
-                  position: 'relative',
-                  zIndex: 40
                 }}
               >
                 {t.buttonSecondary || 'View Case Studies'}

@@ -33,6 +33,8 @@ const processSteps = [
   { step: '06', title: 'Growth', desc: 'Continuously optimize and evolve your product based on data and user feedback.' },
 ];
 
+import CTABanner from '@/components/home/CTABanner';
+
 export default async function ServicesPage({ params }: PageProps) {
   const { lang } = await params;
   if (!isValidLocale(lang)) notFound();
@@ -103,15 +105,15 @@ export default async function ServicesPage({ params }: PageProps) {
           {processSteps.map((step, i) => (
             <Animate key={step.step} delay={i * 80}>
               <div className="relative card-base p-6 hover:-translate-y-1 h-full overflow-hidden group">
-                <span className="absolute -top-4 -right-2 text-8xl font-display font-bold text-brand-50 select-none group-hover:text-brand-100 transition-colors duration-300">
+                <span className="absolute -top-4 -right-2 text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-orange-500/10 to-red-500/10 select-none group-hover:from-orange-500/20 group-hover:to-red-500/20 transition-colors duration-300">
                   {step.step}
                 </span>
                 <div className="relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-purple flex items-center justify-center text-white text-sm font-bold mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white text-sm font-bold mb-4 shadow-sm group-hover:scale-110 transition-transform">
                     {step.step}
                   </div>
                   <h3 className="font-display font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium">{step.desc}</p>
                 </div>
               </div>
             </Animate>
@@ -119,24 +121,7 @@ export default async function ServicesPage({ params }: PageProps) {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="bg-white">
-        <Animate>
-          <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-brand-50 to-purple-50 rounded-4xl p-12 border border-brand-100">
-            <SectionLabel className="mx-auto">Ready to Start?</SectionLabel>
-            <Heading as="h2" className="text-3xl md:text-4xl mb-4">Let's Build Something Remarkable</Heading>
-            <p className="text-gray-500 mb-8 text-lg">Get a free consultation and tailored proposal within 48 hours.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={`/${locale}/contact`} className="btn-primary text-base px-8 py-4">
-                Book Free Consultation <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link href={`/${locale}/projects`} className="btn-secondary text-base px-8 py-4">
-                View Case Studies
-              </Link>
-            </div>
-          </div>
-        </Animate>
-      </Section>
+      <CTABanner lang={locale} t={servicesT.cta as any} />
     </>
   );
 }

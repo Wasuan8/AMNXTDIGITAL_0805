@@ -28,6 +28,7 @@ export default async function ProjectsPage({ params }: PageProps) {
         title: t.projects.hero.title,
         subtitle: t.projects.hero.subtitle,
         filters: t.projects.filters,
+        cta: t.projects.cta,
       }}
     />
   );

@@ -3,6 +3,7 @@ import type { Locale } from '@/lib/types';
 import { getTranslations, isValidLocale } from '@/lib/i18n';
 import { notFound } from 'next/navigation';
 import Hero from '@/components/home/Hero';
+import MacbookHeroScroll from '@/components/home/MacbookHeroScroll';
 import Stats from '@/components/home/Stats';
 import ServicesOverview from '@/components/home/ServicesOverview';
 import WhyUs from '@/components/home/WhyUs';
@@ -42,6 +43,7 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <>
       <Hero lang={locale} t={home.hero} />
+      <MacbookHeroScroll />
       <Stats t={home.stats} />
       <ClientLogos />
       <ServicesOverview lang={locale} t={home.services} />

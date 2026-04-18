@@ -13,8 +13,8 @@ export default function PageHero({ label, title, subtitle, centered = true }: Pa
     <section className="pt-32 pb-20 bg-mesh relative overflow-hidden">
       {/* Decorations */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-brand-400/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-72 h-72 bg-sky-400/8 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-orange-400/10 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-10 right-1/4 w-72 h-72 bg-red-400/10 rounded-full blur-3xl opacity-50" />
       </div>
 
       <div className="container-custom relative z-10">
