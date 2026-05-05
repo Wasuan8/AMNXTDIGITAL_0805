@@ -100,12 +100,11 @@ export const stats: Stat[] = [
 ];
 
 export const clientLogos = [
-  { name: 'NexaBank', logo: 'https://placehold.co/120x40/f0f4ff/5a67f5?text=NexaBank' },
-  { name: 'ZenVibe', logo: 'https://placehold.co/120x40/f8f0ff/9333ea?text=ZenVibe' },
-  { name: 'PulseMedia', logo: 'https://placehold.co/120x40/f0fff8/10b981?text=Pulse' },
-  { name: 'LuxeCraft', logo: 'https://placehold.co/120x40/fffbeb/f59e0b?text=LuxeCraft' },
-  { name: 'OrbitAI', logo: 'https://placehold.co/120x40/f0f9ff/0ea5e9?text=OrbitAI' },
-  { name: 'Skyline', logo: 'https://placehold.co/120x40/fdf2f8/db2777?text=Skyline' },
-  { name: 'TechCorp', logo: 'https://placehold.co/120x40/f0fdf4/16a34a?text=TechCorp' },
-  { name: 'DigitalHub', logo: 'https://placehold.co/120x40/fef2f2/dc2626?text=DigHub' },
+  { name: 'MI 3D Solutions', logo: 'https://placehold.co/120x40/f0f4ff/5a67f5?text=MI 3D Solutions' },
+  { name: 'Harvey Masjid USA', logo: 'https://placehold.co/120x40/f8f0ff/9333ea?text=Harvey Masjid' },
+  { name: 'Idoc Cases & Accessories', logo: 'https://placehold.co/120x40/f0fff8/10b981?text=Idoc Cases' },
+  { name: 'Bulk Case India', logo: 'https://placehold.co/120x40/fffbeb/f59e0b?text=Bulk Case' },
+  { name: 'Janae G. Realtor', logo: 'https://placehold.co/120x40/f0f9ff/0ea5e9?text=Janae G' },
+  { name: 'Finstra Cafe & Bistro', logo: 'https://placehold.co/120x40/fdf2f8/db2777?text=Finstra Cafe' },
+  { name: 'Wash King LLC', logo: 'https://placehold.co/120x40/f0fdf4/16a34a?text=Wash King' },
 ];

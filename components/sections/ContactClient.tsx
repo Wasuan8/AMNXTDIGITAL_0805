@@ -1,8 +1,10 @@
 'use client';
 import { useState, type FormEvent } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, ChevronDown } from 'lucide-react';
 import { SectionLabel, Heading } from '@/components/ui/index';
 import Animate from '@/components/ui/Animate';
+import { GlobeDemo } from '@/components/ui/GlobeDemo';
 import { cn } from '@/lib/utils';
 
 interface ContactClientProps {
@@ -26,18 +28,11 @@ const services = [
   'Other',
 ];
 
-const budgets = [
-  'Under $5,000',
-  '$5,000 – $15,000',
-  '$15,000 – $50,000',
-  '$50,000 – $100,000',
-  '$100,000+',
-  'Not sure yet',
-];
+
 
 export default function ContactClient({ lang, t }: ContactClientProps) {
   const [form, setForm] = useState({
-    name: '', email: '', phone: '', service: '', description: '', budget: '',
+    name: '', email: '', phone: '', service: '', description: '', budget: '1000',
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -81,15 +76,14 @@ export default function ContactClient({ lang, t }: ContactClientProps) {
         <div className="container-custom">
           <div className="grid lg:grid-cols-5 gap-12 items-start">
 
-            {/* Left: Info */}
-            <div className="lg:col-span-2 space-y-6">
+            {/* Left: Info & Globe */}
+            <div className="lg:col-span-2 space-y-8">
               <Animate direction="left">
                 <h2 className="font-display font-bold text-2xl text-gray-900 mb-6">Contact Information</h2>
 
                 {[
                   { icon: Mail, label: 'Email', value: t.info.email || 'hello@AMNXT DIGITAL.com', href: `mailto:${t.info.email}` },
                   { icon: Phone, label: 'Phone', value: t.info.phone || '+1 (555) 000-0000', href: `tel:${t.info.phone}` },
-                  { icon: MapPin, label: 'Address', value: t.info.address || '123 Innovation Drive, Tech City', href: '#' },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <a
                     key={label}
@@ -107,23 +101,10 @@ export default function ContactClient({ lang, t }: ContactClientProps) {
                 ))}
               </Animate>
 
-              {/* Map Placeholder */}
+              {/* Premium Interactive Globe */}
               <Animate direction="left" delay={150}>
-                <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-card">
-                  <div className="h-52 bg-gradient-to-br from-brand-50 via-surface-2 to-purple-50 flex items-center justify-center relative">
-                    <div className="text-center">
-                      <MapPin className="w-10 h-10 text-brand-400 mx-auto mb-2" />
-                      <p className="text-sm text-gray-500">Anand</p>
-                      <p className="text-xs text-gray-400">Gujarat</p>
-                    </div>
-                    {/* Decorative grid */}
-                    <div className="absolute inset-0 opacity-20"
-                      style={{
-                        backgroundImage: 'linear-gradient(rgba(90,103,245,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(90,103,245,0.5) 1px, transparent 1px)',
-                        backgroundSize: '30px 30px',
-                      }}
-                    />
-                  </div>
+                <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-2xl bg-white h-[400px] relative">
+                  <GlobeDemo />
                 </div>
               </Animate>
 
@@ -240,25 +221,65 @@ export default function ContactClient({ lang, t }: ContactClientProps) {
                     </div>
 
                     {/* Budget */}
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-600 mb-1.5 ml-1">{t.form.budget}</label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                        {budgets.map((b) => (
-                          <button
-                            key={b}
-                            type="button"
-                            onClick={() => setForm((prev) => ({ ...prev, budget: b }))}
-                            className={cn(
-                              'px-3 py-2.5 rounded-xl text-xs font-medium border transition-all duration-200 text-left',
-                              form.budget === b
-                                ? 'border-brand-400 bg-brand-50 text-brand-700 ring-2 ring-brand-100'
-                                : 'border-gray-200 text-gray-600 hover:border-brand-200 hover:bg-surface-1'
-                            )}
-                          >
-                            {b}
-                          </button>
-                        ))}
+                    <div className="space-y-6 pt-2">
+                      <div className="flex justify-between items-end">
+                        <label className="block text-xs font-semibold text-gray-600 ml-1">{t.form.budget}</label>
+                        <div className="flex items-baseline gap-1">
+                          <AnimatePresence mode="wait">
+                            <motion.span
+                              key={form.budget}
+                              initial={{ opacity: 0, y: 5 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className="text-brand-600 font-display font-bold text-2xl"
+                            >
+                              ${Number(form.budget).toLocaleString()}
+                            </motion.span>
+                          </AnimatePresence>
+                          {Number(form.budget) >= 100000 && <span className="text-brand-600 font-bold text-xl">+</span>}
+                        </div>
                       </div>
+
+                      <div className="relative group px-1">
+                        {/* Custom Track Background */}
+                        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full bg-gradient-to-r from-brand-400 to-brand-600"
+                            initial={false}
+                            animate={{ width: `${((Number(form.budget) - 1000) / 99000) * 100}%` }}
+                            transition={{ type: 'spring', damping: 20, stiffness: 100 }}
+                          />
+                        </div>
+
+                        <input
+                          type="range"
+                          name="budget"
+                          min="1000"
+                          max="100000"
+                          step="1000"
+                          value={form.budget}
+                          onChange={(e) => setForm(prev => ({ ...prev, budget: e.target.value }))}
+                          className="relative w-full h-2.5 bg-transparent appearance-none cursor-pointer z-10 accent-transparent [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-4 [&::-webkit-slider-thumb]:border-brand-500 [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:duration-200 [&::-webkit-slider-thumb]:hover:scale-110"
+                        />
+
+                        <div className="flex justify-between mt-4 px-0.5">
+                          {[1000, 25000, 50000, 75000, 100000].map((val) => (
+                            <div key={val} className="flex flex-col items-center">
+                              <div className={cn(
+                                "w-1 h-1 rounded-full mb-1 transition-colors duration-300",
+                                Number(form.budget) >= val ? "bg-brand-400" : "bg-gray-200"
+                              )} />
+                              <span className="text-[10px] font-bold text-gray-400">
+                                ${val >= 1000 ? (val / 1000) + 'k' : val}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* Budget helper text */}
+                      <p className="text-[11px] text-gray-400 italic ml-1">
+                        * Prices are estimates and vary based on specific project requirements.
+                      </p>
                     </div>
 
                     <button

@@ -87,10 +87,10 @@ export default async function AboutPage({ params }: PageProps) {
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { value: 150, suffix: '+', label: 'Projects Delivered' },
-            { value: 100, suffix: '+', label: 'Happy Clients' },
-            { value: 7, suffix: '+', label: 'Years Experience' },
-            { value: 10, suffix: '+', label: 'Countries Served' },
+            { value: 100, suffix: '%', label: 'Commitment to Client Success' },
+            { value: 24, suffix: '/7', label: ' Hour Availability & Support' },
+            { value: 3, suffix: '+', label: 'Core Service Domains' },
+            { value: 1, suffix: '', label: 'Goal – Scalable Growth' },
           ].map((stat, i) => (
             <Animate key={stat.label} delay={i * 100} className="text-center p-8 rounded-3xl glass-premium shadow-sm">
               <div className="text-4xl md:text-5xl font-display font-bold text-gradient mb-2">

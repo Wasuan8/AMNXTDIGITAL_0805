@@ -72,7 +72,7 @@ export default function MacbookHeroScroll() {
             <Badge className="h-10 w-10 -rotate-12 transform group-hover:rotate-0 transition-transform duration-500 relative z-10" />
           </div>
         }
-        src={`/images/Logo.png`}
+        src={`/images/icon.png`}
         showGradient={true}
         isLight={true}
       />

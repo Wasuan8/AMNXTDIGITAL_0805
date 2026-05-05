@@ -234,25 +234,46 @@ export default async function ProjectDetailPage({ params }: SlugPageProps) {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="bg-white">
-        <Animate>
-          <div className="max-w-2xl mx-auto text-center rounded-4xl bg-gradient-to-br from-brand-600 to-accent-purple p-12 text-white">
-            <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
-              Want to Work with {member.name.split(' ')[0]}?
-            </h2>
-            <p className="text-white/70 mb-8">
-              Book a consultation and get paired with the perfect team for your project.
-            </p>
-            <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-brand-700 font-semibold hover:bg-brand-50 transition-colors shadow-lg"
+      {/* CTA - Only for Moin, Aadil, and Lisa */}
+      {['moin-vhora', 'adil-vhora', 'lisa-vhora'].includes(member.slug) && (
+        <Section className="bg-white overflow-hidden py-0">
+          <Animate>
+            <div 
+              className="w-full relative overflow-hidden flex flex-col items-center text-center shadow-2xl p-10 md:p-20"
+              style={{
+                background: 'white',
+                backgroundImage: 'radial-gradient(89.08% 84.62% at 16.54% 78.46%, #ffffff 0%, #f0f9ff 39.58%, #e0f2fe 77.6%, #bae6fd 100%), url("https://assets.codepen.io/16327/noise-e82662fe.png")',
+                borderRadius: '3rem',
+                boxShadow: '0 40px 100px -20px rgba(125, 211, 252, 0.35), 0 0 1px 1px rgba(125, 211, 252, 0.1) inset'
+              }}
             >
-              Start a Conversation <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </Animate>
-      </Section>
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6 leading-tight text-black">
+                  Want to Work with {member.name.split(' ')[0]}?
+                </h2>
+                <p className="text-lg md:text-xl text-black/70 mb-10 leading-relaxed">
+                  Step into the future with world-class engineering, stunning design, and scalable infrastructure guided by {member.name.split(' ')[0]}.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Link
+                    href={`/${locale}/contact`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95"
+                    style={{ background: '#000000', color: '#bae6fd' }}
+                  >
+                    Start a Conversation <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href={`/${locale}/projects`}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold border border-black/20 text-black hover:bg-black/5 transition-all duration-300 active:scale-95"
+                  >
+                    View Case Studies
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Animate>
+        </Section>
+      )}
     </>
   );
 }

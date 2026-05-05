@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Link2, X, Code2, Camera } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import type { Locale } from '@/lib/types';
 import { isRTL } from '@/lib/i18n';
 
@@ -43,7 +43,7 @@ export default function Footer({ lang, t }: FooterProps) {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`/${lang}`} className="flex items-center gap-2 mb-4 group">
-              <img src="/images/Logo.png" alt="Logo" className="w-10 h-10 " />
+              <img src="/images/icon.png" alt="Logo" className="w-10 h-10 " />
               <span className="text-xl font-display font-bold text-gray-900 tracking-tight">
                 AMNXT<span className="text-brand-700">DIGITAL</span>
               </span>
@@ -53,20 +53,21 @@ export default function Footer({ lang, t }: FooterProps) {
             </p>
             <div className="flex flex-wrap items-center gap-3">
               {[
-                { icon: Camera, href: "https://cdn-icons-png.flaticon.com/128/15707/15707749.png", label: "Instagram" },
-                { icon: X, href: "https://cdn-icons-png.flaticon.com/128/3536/3536505.png", label: "LinkedIn" },
-                { icon: Code2, href: "https://cdn-icons-png.flaticon.com/128/5968/5968830.png", label: "GitHub" },
-                { icon: Camera, href: "https://cdn-icons-png.flaticon.com/128/174/174848.png", label: "FaceBook" }
-              ].map(({ href, label }) => (
+                { label: "Instagram", icon: "https://cdn-icons-png.flaticon.com/128/15707/15707749.png", href: "https://www.instagram.com/amnxt_digital/" },
+                { label: "Facebook", icon: "https://cdn-icons-png.flaticon.com/128/5968/5968764.png", href: "https://www.facebook.com/profile.php?id=61587139834568" },
+                { label: "LinkedIn", icon: "https://cdn-icons-png.flaticon.com/128/3536/3536505.png", href: "https://www.linkedin.com/company/amnxt-digital/" },
+                { label: "Youtube", icon: "https://cdn-icons-png.flaticon.com/128/1384/1384060.png", href: "https://www.youtube.com/@AMNXT_Digital" },
+                { label: "X", icon: "https://cdn-icons-png.flaticon.com/128/5969/5969020.png", href: "https://x.com/AMNXT_Digital" }
+              ].map((social) => (
                 <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="w-10 h-10 rounded-2xl glass-premium hover:bg-white text-gray-900 border border-white/60 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-[0_10px_30px_-5px_rgba(249,115,22,0.2)] hover:-translate-y-1.5"
                 >
-                  {/* <Icon className="w-4 h-4" /> */}
-                  <img src={href} alt={label} className="w-6 h-6" />
-
+                  <img src={social.icon} alt={social.label} className="w-6 h-6" />
                 </a>
               ))}
             </div>
@@ -130,7 +131,7 @@ export default function Footer({ lang, t }: FooterProps) {
         {/* Bottom */}
         <div className="border-t border-black/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs font-semibold opacity-70">
-            {(footer?.copyright as string) || '© 2025 AMNXT DIGITAL. All rights reserved.'}
+            {(footer?.copyright as string) || '© 2026 AMNXT DIGITAL LLP. All rights reserved.'}
           </p>
           <div className="flex items-center gap-6">
             {[
@@ -148,8 +149,8 @@ export default function Footer({ lang, t }: FooterProps) {
 
       {/* Brand Watermark Effect */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden h-full flex items-end justify-center z-0 select-none">
-        <h2 className="text-[20vw] font-display font-bold text-brand-900/[0.06] dark:text-white/[0.04] uppercase leading-none translate-y-1/4 tracking-tighter whitespace-nowrap">
-          DevStudio
+        <h2 className="text-[20vw] font-display font-bold text-brand-900/[0.06] dark:text-white/[0.08] uppercase leading-none translate-y-1/4 tracking-tighter whitespace-nowrap">
+          AMNXTDIGITAL
         </h2>
       </div>
     </footer>

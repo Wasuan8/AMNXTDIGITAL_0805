@@ -21,7 +21,14 @@ export const projects: Project[] = [
     problem: 'Mosque operations like donations and community communication were manual and fragmented, making it hard to maintain accurate records and engagement.',
     solution: 'We built a connected ecosystem including a mobile app, admin panel, and a dedicated kiosk payment system with tap-to-pay functionality, all synced to a central database.',
     outcome: 'A scalable digital infrastructure that strengthens community connection, improves financial transparency, and streamlines daily mosque management.',
-    gallery: ['/images/projects/harvey-masjid.png'],
+    gallery: [
+      '/images/projects/harvey-masjid.png',
+      '/images/projects/Harvey1.png',
+      '/images/projects/Harvey2.png',
+      '/images/projects/Harvey3.png',
+      '/images/projects/Harvey4.png',
+      '/images/projects/Harvey5.png',
+    ],
   },
   {
     id: '2',

@@ -21,7 +21,7 @@ export default function SplashScreen() {
     <div className="fixed inset-0 z-[9999] bg-white flex items-center justify-center transition-opacity duration-500">
       <div className="relative flex flex-col items-center justify-center animate-pulse">
         <Image
-          src="/images/Logo.png"
+          src="/images/icon.png"
           alt="AMNXT DIGITAL Logo"
           width={250}
           height={80}

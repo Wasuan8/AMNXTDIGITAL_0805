@@ -62,10 +62,10 @@ export default function Navbar({ lang, t }: NavbarProps) {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-         scrolled
-           ? 'glass-premium shadow-2xl py-2.5 translate-y-4 max-w-[95%] lg:max-w-[1100px] mx-auto left-0 right-0 rounded-full border border-white/60'
-           : 'bg-transparent py-5'
-       )}
+        scrolled
+          ? 'glass-premium shadow-2xl py-2.5 translate-y-4 max-w-[95%] lg:max-w-[1100px] mx-auto left-0 right-0 rounded-full border border-white/60'
+          : 'bg-transparent py-5'
+      )}
       dir={dir}
     >
       <nav className="container-custom flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function Navbar({ lang, t }: NavbarProps) {
           {/* <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-accent-purple flex items-center justify-center shadow-brand group-hover:shadow-brand-lg transition-shadow duration-300">
             <Zap className="w-5 h-5 text-white" />
           </div> */}
-          <img src="/images/Logo.png" alt="Logo" className='w-10 h-10' />
+          <img src="/images/icon.png" alt="Logo" className='w-10 h-10' />
 
           <span className="text-xl font-display font-bold text-gray-900 tracking-tight">
             AMNXT <span className="text-gradient">  DIGITAL</span>

@@ -8,7 +8,14 @@ import type { Locale } from '@/lib/types';
 
 interface CTABannerProps {
   lang: Locale;
-  t: { title: string; subtitle: string; button: string; buttonSecondary: string };
+  t: { 
+    title: string; 
+    subtitle: string; 
+    button: string; 
+    buttonSecondary: string;
+    link?: string;
+    linkSecondary?: string;
+  };
 }
 
 export default function CTABanner({ lang, t }: CTABannerProps) {
@@ -95,7 +102,7 @@ export default function CTABanner({ lang, t }: CTABannerProps) {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto relative z-30" style={{ transform: 'translateZ(60px)', pointerEvents: 'auto' }}>
               <Link
-                href={`/${lang}/contact`}
+                href={`/${lang}${t.link || '/contact'}`}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-medium shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 cursor-pointer relative z-40"
                 style={{ 
                   background: '#000000', 
@@ -106,7 +113,7 @@ export default function CTABanner({ lang, t }: CTABannerProps) {
                 {t.button || 'Book a Strategy Call'}
               </Link>
               <Link
-                href={`/${lang}/projects`}
+                href={`/${lang}${t.linkSecondary || '/projects'}`}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold border hover:bg-black/5 transition-all duration-300 active:scale-95 cursor-pointer relative z-40"
                 style={{ 
                   borderColor: 'rgba(0, 0, 0, 0.2)', 

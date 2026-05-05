@@ -9,6 +9,7 @@ import { projects } from '@/data/projects';
 import { Section, SectionLabel, Heading, Badge, TagList, Card } from '@/components/ui/index';
 import Animate from '@/components/ui/Animate';
 import Counter from '@/components/ui/Counter';
+import ProjectGallery from '@/components/sections/ProjectGallery';
 
 import { SlugPageProps } from '@/lib/types';
 
@@ -151,80 +152,90 @@ export default async function ProjectDetailPage({ params }: SlugPageProps) {
             <Heading as="h2" className="text-3xl md:text-4xl">Project Showcase</Heading>
           </Animate>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {project.gallery.map((img, i) => (
-            <Animate key={i} delay={i * 80} direction="up">
-              <div className="relative h-52 md:h-64 rounded-3xl overflow-hidden group cursor-pointer shadow-card hover:shadow-card-hover transition-shadow duration-300">
-                <Image
-                  src={img}
-                  alt={`${project.title} screenshot ${i + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4">
-                  <ExternalLink className="w-5 h-5 text-white" />
-                </div>
-              </div>
-            </Animate>
-          ))}
+        <ProjectGallery 
+          gallery={project.gallery} 
+          title={project.title} 
+          category={project.category} 
+        />
+      </Section>
+
+      {/* Other Projects */}
+      <Section className="bg-surface-1 py-20">
+        <div className="container-custom">
+          <Animate direction="up" className="mb-10 text-center">
+            <SectionLabel>Continue Exploring</SectionLabel>
+            <Heading as="h2" className="text-3xl md:text-4xl">More Case Studies</Heading>
+          </Animate>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects
+              .filter((p) => p.slug !== project.slug)
+              .slice(0, 3)
+              .map((p, i) => (
+                <Animate key={p.id} delay={i * 100} direction="up">
+                  <Link href={`/${locale}/projects/${p.slug}`} className="group block h-full">
+                    <Card className="p-0 overflow-hidden h-full border-gray-100 hover:border-brand-200 transition-all duration-300">
+                      <div className="relative h-48 w-full">
+                        <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                      <div className="p-6">
+                        <Badge variant="muted" className="mb-3">{p.category}</Badge>
+                        <h3 className="font-bold text-lg text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-1">{p.title}</h3>
+                        <p className="text-sm text-gray-500 mt-2 line-clamp-2">{p.description}</p>
+                        <div className="flex items-center gap-2 text-brand-600 font-semibold text-sm mt-4 group-hover:gap-3 transition-all">
+                          View Project <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </Animate>
+              ))}
+          </div>
         </div>
       </Section>
 
-      {/* CTA + Other Projects */}
-      <Section className="bg-surface-1">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <Animate direction="left">
-            <Card className="p-10 bg-gradient-to-br from-brand-600 to-accent-purple border-0 text-white">
-              <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
-                Ready to Start Your Project?
+      {/* Premium CTA Section */}
+      <Section className="bg-white py-0 overflow-hidden">
+        <Animate>
+          <div 
+            className="w-full relative overflow-hidden flex flex-col items-center text-center shadow-2xl p-12 md:p-24"
+            style={{
+              background: 'white',
+              backgroundImage: 'radial-gradient(89.08% 84.62% at 16.54% 78.46%, #ffffff 0%, #f0f9ff 39.58%, #e0f2fe 77.6%, #bae6fd 100%), url("https://assets.codepen.io/16327/noise-e82662fe.png")',
+              borderRadius: '3rem',
+              boxShadow: '0 40px 100px -20px rgba(125, 211, 252, 0.35), 0 0 1px 1px rgba(125, 211, 252, 0.1) inset'
+            }}
+          >
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6">
+                <span className="text-[10px] font-bold tracking-widest text-blue-600 uppercase">
+                  Project Collaboration
+                </span>
+              </div>
+              <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-7xl tracking-tight mb-8 leading-tight text-black">
+                Ready to Start Your <span className="text-blue-600">Own Journey?</span>
               </h2>
-              <p className="text-white/70 mb-8 leading-relaxed">
-                Let's discuss how we can create similar results for your business. Book a free consultation today.
+              <p className="text-lg md:text-xl text-black/70 mb-12 leading-relaxed max-w-2xl mx-auto">
+                Let's discuss how we can create similar high-impact results for your business. Book a free consultation and get paired with our senior team.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href={`/${locale}/contact`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white text-brand-700 font-semibold hover:bg-brand-50 transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 rounded-2xl font-bold shadow-2xl hover:-translate-y-1 transition-all duration-300 active:scale-95"
+                  style={{ background: '#000000', color: '#bae6fd' }}
                 >
-                  Book Consultation <ArrowRight className="w-4 h-4" />
+                  Book Consultation <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   href={`/${locale}/projects`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 text-white font-semibold border border-white/20 hover:bg-white/20 transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 rounded-2xl font-bold border border-black/10 text-black hover:bg-black/5 transition-all duration-300 active:scale-95"
                 >
-                  More Projects
+                  View All Projects
                 </Link>
               </div>
-            </Card>
-          </Animate>
-
-          <div>
-            <Animate direction="right">
-              <h3 className="font-display font-semibold text-xl text-gray-900 mb-6">More Case Studies</h3>
-            </Animate>
-            <div className="space-y-4">
-              {projects
-                .filter((p) => p.slug !== project.slug)
-                .slice(0, 3)
-                .map((p, i) => (
-                  <Animate key={p.id} delay={i * 80} direction="right">
-                    <Link href={`/${locale}/projects/${p.slug}`} className="group block">
-                      <div className="flex items-center gap-4 p-4 rounded-2xl border border-gray-100 bg-white hover:border-brand-200 hover:shadow-card transition-all duration-250">
-                        <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-surface-1">
-                          <Image src={p.image} alt={p.title} fill className="object-cover" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-semibold text-sm text-gray-900 truncate group-hover:text-brand-700 transition-colors">{p.title}</p>
-                          <p className="text-xs text-gray-400 truncate mt-0.5">{p.client}</p>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-brand-500 group-hover:translate-x-1 transition-all shrink-0" />
-                      </div>
-                    </Link>
-                  </Animate>
-                ))}
             </div>
           </div>
-        </div>
+        </Animate>
       </Section>
     </>
   );
